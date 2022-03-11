@@ -18,8 +18,6 @@ def main():
     config = configparser.ConfigParser()
     config.read('dwh.cfg')
     link = "host={} dbname={} user={} password={} port={}".format(*config['CLUSTER'].values())
-    
-    print(link)
     conn = psycopg2.connect(link)
     cur = conn.cursor()
 
