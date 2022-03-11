@@ -54,12 +54,12 @@ def main():
     conn = psycopg2.connect("host={} dbname={} user={} password={} port={}".format(*config['CLUSTER'].values()))
     cur = conn.cursor()
     
-#     load_staging_tables(cur, conn)
-#     insert_tables(cur, conn)
+    load_staging_tables(cur, conn)
+    insert_tables(cur, conn)
 #     load_error(cur,conn)
 #     check_event_table(cur,conn)
 #     check_song_table(cur,conn)
-    test_func(cur,conn)
+#     test_func(cur,conn)
     conn.close()
 
 

@@ -7,13 +7,13 @@ config.read('dwh.cfg')
 
 # DROP TABLES
 
-staging_events_table_drop = "DROP TABLE IF EXISTS event_staging;"
-staging_songs_table_drop = "DROP TABLE IF EXISTS song_staging;"
-songplay_table_drop = "DROP TABLE IF EXISTS songplay;"
-user_table_drop = "DROP TABLE IF EXISTS users;"
-song_table_drop = "DROP TABLE IF EXISTS songs;"
-artist_table_drop = "DROP TABLE IF EXISTS artists;"
-time_table_drop = "DROP TABLE IF EXISTS time;"
+staging_events_table_drop = "DROP TABLE IF EXISTS event_staging CASCADE;"
+staging_songs_table_drop = "DROP TABLE IF EXISTS song_staging CASCADE;"
+songplay_table_drop = "DROP TABLE IF EXISTS songplay CASCADE;"
+user_table_drop = "DROP TABLE IF EXISTS users CASCADE;"
+song_table_drop = "DROP TABLE IF EXISTS songs CASCADE;"
+artist_table_drop = "DROP TABLE IF EXISTS artists CASCADE;"
+time_table_drop = "DROP TABLE IF EXISTS time CASCADE;"
 
 # CREATE TABLES
 
@@ -181,9 +181,9 @@ drop_table_queries = [staging_events_table_drop, staging_songs_table_drop, songp
 copy_table_queries = [staging_events_copy, staging_songs_copy]
 insert_table_queries = [songplay_table_insert, user_table_insert, song_table_insert, artist_table_insert, time_table_insert]
 
-check_stl_load_error = "select * from stl_load_errors;"
-check_event_staging = "select * from event_staging limit 20;"
-check_song_staging = "select * from song_staging limit 20;"
+# check_stl_load_error = "select * from stl_load_errors;"
+# check_event_staging = "select * from event_staging limit 20;"
+# check_song_staging = "select * from song_staging limit 20;"
 # test = "SELECT * FROM songplay WHERE songplay_id = 1;"
-test = "SELECT * FROM time LIMIT 10;"
+# test = "SELECT * FROM time LIMIT 10;"
 
